@@ -54,13 +54,13 @@ SELECT s. id, s.name, m.content, m.point, um.is_completed
 
 FROM mission m
 
-JOIN user_mission um ON [m.id](http://m.id) = [um.mission_id](http://um.id)
+JOIN user_mission um ON m.id = um.mission_id
 
-JOIN shop s ON m.shop_id = [s.id](http://s.id)
+JOIN shop s ON m.shop_id = s.id
 
 WHERE um.user_id = 1 AND um.state = ‘complete’ AND um.id<90
 
-ORDER BY u[m.id](http://m.id) desc
+ORDER BY m.id desc
 LIMIT 10;
 
 마지막으로 조회한 um.id가 90일때 그걸 커서로 두고 커서 기반 페이징함
@@ -90,7 +90,7 @@ JOIN mission m ON um.mission_id = m.id
 JOIN shop s ON m.shop_id = s.id
 JOIN region r ON s.region_id = r.id
 
-WHERE user_id=1 AND is_completed=true AND [r.name](http://r.name) = ‘안암동’
+WHERE user_id=1 AND is_completed=true AND r.name = ‘안암동’
 
 지역 데이터를 포함하기 위해서 shop 테이블도 조인
 
@@ -98,10 +98,10 @@ WHERE user_id=1 AND is_completed=true AND [r.name](http://r.name) = ‘안암동
 
 SELECT s.id, s.name, s.category, m.content, m.point, m.due_date
 FROM mission m
-JOIN user_mission um ON [m.id](http://m.id) = um.mission_id
+JOIN user_mission um ON m.id = um.mission_id
 JOIN shop s ON m.shop_id = s.id
 WHERE um.user_id = 1 AND um.is_completed = false AND um.id<90
-ORDER BY u[m.id](http://m.id) desc
+ORDER BY m.id desc
 LIMIT 10;
 
 커서 기반 페이징
