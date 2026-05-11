@@ -1,3 +1,7 @@
+# PR review
+![pr1.png](pr1.png)
+![pr2.png](pr2.png)
+
 # 리뷰 작성 api
 
 ![review.png](review.png)
